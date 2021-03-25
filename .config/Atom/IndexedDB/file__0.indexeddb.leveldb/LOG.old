@@ -1,0 +1,6 @@
+2021/03/24-20:44:58.097 7278 Reusing MANIFEST /home/tim/.config/Atom/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2021/03/24-20:44:58.098 7278 Recovering log #3
+2021/03/24-20:44:58.221 7278 Reusing old log /home/tim/.config/Atom/IndexedDB/file__0.indexeddb.leveldb/000003.log 
+2021/03/24-22:49:27.259 7609 Level-0 table #5: started
+2021/03/24-22:49:27.421 7609 Level-0 table #5: 1820490 bytes OK
+2021/03/24-22:49:27.455 7609 Delete type=0 #3

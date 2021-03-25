@@ -1,0 +1,24 @@
+[$Version]
+update_info=ksmserver_update_loginMode_value.upd:ksmserver_update_loginMode_value_default_enum
+
+[LegacySession: saved at previous logout]
+count=0
+
+[Session: saved at previous logout]
+clientId1=1014c13e131cc000161628467500000012540007
+clientId2=1014c13e131cc000161659972800000012450005
+clientId3=1014c13e131cc000161660025100000012450008
+count=3
+discardCommand3[$e]=rm,$HOME/.config/session/dolphin_1014c13e131cc000161660025100000012450008_1616600493_20006
+program1=firefox
+program2=pulseaudio
+program3=/bin/dolphin
+restartCommand1=/usr/lib/firefox/firefox,--sm-client-id,1014c13e131cc000161628467500000012540007
+restartCommand2=
+restartCommand3=/bin/dolphin,-session,1014c13e131cc000161660025100000012450008_1616600493_20006
+restartStyleHint1=0
+restartStyleHint2=0
+restartStyleHint3=0
+userId1=tim
+userId2=tim
+userId3=tim
