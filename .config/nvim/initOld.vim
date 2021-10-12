@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim'
 Plug 'justmao945/vim-clang' " Syntax checking
 Plug 'Shougo/echodoc.vim'
 
@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
+Plug 'camspiers/animate.vim' 
 
 " Syntax highlighting
 Plug 'petrbroz/vim-glsl'
@@ -18,7 +19,7 @@ Plug 'arakashic/chromatica.nvim'
 Plug 'petRUShka/vim-opencl'
 Plug 'othree/yajs.vim'
 Plug 'justinmk/vim-syntax-extra' " C
-Plug 'oblitum/rainbow' " Brackets 
+Plug 'oblitum/rainbow' " Brackets
 Plug 'pangloss/vim-javascript'
 
 " Vim preview for latex
@@ -46,7 +47,6 @@ Plug 'powerline/powerline-fonts'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
 
 Plug 'jalvesaq/Nvim-R'
 
@@ -78,6 +78,9 @@ autocmd BufEnter * call SyncTree()
 noremap <SPACE> <Nop>
 map <Space> <leader>
 
+" terminal mapping 
+tnoremap <Esc> <C-\><C-n>
+
 " Basic vim remap
 map <leader>ws :split<CR>
 map <leader>wv :vsplit<CR>
@@ -87,19 +90,17 @@ map <leader>j  <C-j>
 map <leader>k  <C-k>
 map <leader>wq :wq<CR>
 map <leader>q  :q!<CR>
-map <Right>    :vertical resize +5<CR>
-map <Left>     :vertical resize -5<CR>
-map <Up>       :res -5<CR>
-map <Down>     :res +5<CR>
+nnoremap <silent> <Right>    :call animate#window_delta_width(5)<CR>
+nnoremap <silent> <Left>     :call animate#window_delta_width(-5)<CR>
+nnoremap <silent> <Up>       :call animate#window_delta_height(5)<CR>
+nnoremap <silent> <Down>       :call animate#window_delta_height(-5)<CR>
 map <leader>t  :terminal<CR>
 
 " fuzzy finder with ;
 map <leader>. :Files<CR>
 nmap <leader>b :ClangSyntaxCheck<CR>
-map <leader>p :! pdflatex %<CR><CR> 
-map <leader>z :! zathura $(echo % \| sed 's/tex$/pdf/') & disown<CR><CR>
-map <leader>sd :setlocal spell spelllang=de <return>
-map <leader>se :setlocal spell spelllang=en <return>
+map <leader>I :! pdflatex %<CR><CR>
+map <leader>S :! zathura $(echo % \| sed 's/tex$/pdf/') & disown<CR>
 nmap <C-t> :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 
@@ -139,29 +140,18 @@ au ColorScheme * hi Normal ctermbg=none guibg=none
 au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
 
 let g:echodoc#enable_at_startup = 1
+let g:livepreview_cursorhold_recompile=0
+let g:livepreview_previewer='zathura'
 let g:javascript_plugin_jsdoc = 1
 let g:AutoPairsFlyMode = 1
 let g:javascript_plugin_ngdoc = 1
 let g:rainbow_active = 0
+let g:tex_flavor = 'latex'
 
 " configure gruvbox-colorscheme
 let g:gruvbox_contrast_dark='medium'
 let g:airline_theme='minimalist'
 let g:airline_powerline_fonts=1
-
-" configure NERDTree 
-autocmd StdinReadPre * let s:std_in=1 
-autocmd VimEnter * NERDTree../ | if argc() > 0 || exists("s:std_in") | wincmd p | endif 
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" configure live preview
-let g:livepreview_cursorhold_recompile=0
-let g:livepreview_previewer='zathura'
-let g:tex_flavor = 'latex'
-let g:vimtex_complete_enabled=1
-let g:vimtex_complete_close_braces=1
-autocmd Filetype tex setl updatetime=1
-
 
 set tabstop=4
 set number
@@ -174,14 +164,14 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 set expandtab
-set encoding=UTF-8
+set encoding=utf-8
 set noshowmode
 set laststatus=2
 set guifont=Ubuntu\ Mono\ for\ Powerline
 set t_Co=256
 
 " TAB to trigger completion ':verbose imap <tab>'
-inoremap <silent><expr> <TAB>            
+inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
@@ -248,7 +238,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-let g:coc_global_extensions = [ 
+let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-tsserver' ]
 " coc
@@ -260,7 +250,11 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
+" Start NerdTree and bring cursor back in file 
+" autocmd VimEnter * NERDTree | wincmd p 
+
 autocmd Filetype tex setl updatetime=1
 
 colorscheme gruvbox
+
 
