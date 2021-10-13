@@ -1,0 +1,24 @@
+sw_volume: 72
+audio_device_state:1:alsa
+audio_device_state:1:toggle_visualizer
+state: pause
+current: 0
+time: 14.352000
+random: 1
+repeat: 1
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:The 1975/A Brief Inquiry Into Online Relationships/Love It If We Made It--Wxt5MAQ5v4.m4a
+1:11AAMeinePlaylist/YUNGBLUD - Medication-rM1shsSRqB8.m4a
+2:11AAMeinePlaylist/YUNGBLUD - Doctor Doctor [Audio]-yU7fzk0Dmis.m4a
+3:11AAMeinePlaylist/all the good girls go to hell-s_IwrqvM618.m4a
+4:11AAMeinePlaylist/Cage The Elephant - ' Psycho Killer' ACOUSTIC (High Quality)-oIFQVvL-ioE.m4a
+5:11AAMeinePlaylist/Machine Gun Kelly, YUNGBLUD, Travis Barker - I Think I'm OKAY [Official Music Video]-wK-8TCDrbV8.m4a
+6:11AAMeinePlaylist/Royal Blood cover The Police's Roxanne in the Live Lounge-FZ1-Tcgcvm4.m4a
+7:11AAMeinePlaylist/Renegade Music-LO0fRdUksCs.m4a
+8:11AAMeinePlaylist/Starset - Frequency (Lyrics)-vA8-GGqwSDs.m4a
+playlist_end
