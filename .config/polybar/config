@@ -30,6 +30,52 @@ secondary = #FF6200
 alert = #fb4934
 
 [bar/bar]
+monitor = DP-4
+bottom = false
+wm-restack = bspwm
+width = 99%
+height = 26
+offset-x = 11
+offset-y = 11
+
+locale = en_US.UTF-8
+
+enable-ipc = true
+
+padding-left = 0
+padding-right = 0
+
+module-margin-right = 0
+module-margin-left = 0
+
+modules-right = date
+modules-center = mpd
+modules-left = bspwm
+
+background = #262626
+foreground = #ebdbb2
+
+underline-size = 0
+underline-color = #585858
+
+tray-detached = false
+tray-position =
+tray-offset-x = 0
+tray-offset-y = 0
+;tray-maxsize = 16
+tray-padding = 0
+tray-transparent = false
+tray-scale = 1.0
+
+font-0 = "monospace:size=10;2"
+font-1 = "FontAwesome:size=12;2"
+font-2 = "Siji:pixelsize=10;1"
+
+
+border-size = 2
+border-color = #ebdbb2
+
+[bar/secondary]
 monitor = HDMI-0
 bottom = false
 wm-restack = bspwm
@@ -69,6 +115,7 @@ tray-scale = 1.0
 
 font-0 = "monospace:size=10;2"
 font-1 = "FontAwesome:size=12;2"
+font-2 = "Siji:pixelsize=10;1"
 
 border-size = 2
 border-color = #ebdbb2
@@ -110,7 +157,7 @@ ws-icon-3 = IV;
 ws-icon-4 = V;
 ws-icon-5 = VI;
 ws-icon-6 = VII;
-ws-icon-7 = VIII;
+ws-icon-7 = VIII;
 
 
 [module/memory]
@@ -151,3 +198,89 @@ date-alt = %A, %d %B %Y
 time-alt = %H:%M:%S
 
 label = "%date%  %time% "
+
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+; password = mysecretpassword
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 0.5
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone> (deprecated)
+;   <icon-single> - Toggle playing only a single song. Replaces <icon-repeatone>
+;   <icon-consume>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+;format-playing = ${self.format-online}
+;format-paused = ${self.format-online}
+;format-stopped = ${self.format-online}
+;format-online = <bar-progress>
+
+; Available tags:
+;   <label-offline>
+; Default: ""
+;format-offline = <label-offline>
+
+; Available tokens:
+;   %artist%
+;   %album-artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = %artist% - %title%
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+;label-time = %elapsed% / %total%
+
+; Available tokens:
+;   None
+label-offline = 🎜 mpd is offline
+
+; Only applies if <icon-X> is used
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+icon-repeatone = 🔂
+icon-single = 🔂
+icon-consume = ✀
+
+; Used to display the state of random/repeat/repeatone/single
+; Only applies if <icon-[random|repeat|repeatone|single]> is used
+toggle-on-foreground = #928374
+toggle-off-foreground = #585858
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 40
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
