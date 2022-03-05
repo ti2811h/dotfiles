@@ -1,5 +1,6 @@
 # dotfiles
 Here you will find my dotfiles for my window managers, vim. neovim and many more feel free to download, use, edit and upload them as you want.
+Overall it is currently a gruvbox-themed setup.
 
 # alacritty
 Install alacritty and create a directory .config/alacritty and copy the file alacritty.yml to this directory.
@@ -17,9 +18,11 @@ To configure nvim you need following dependencies:
 - https://github.com/junegunn/vim-plug
 
 And then simply create a directory .config/nvim and copy the file init.vim in this directory.
+(I am planning to port my nvim config to lua)
 
 # awesome
-Install awesome and create a directory .config/awesome and copy the files theme.lua and rc.lua to this directory.
+Install awesome and create a directory .config/awesome and copy the files theme.lua and rc.lua to this directory. 
+(not relevant since I am using bspwm)
 
 # bspwm (with polybar)
 ## bspwm
