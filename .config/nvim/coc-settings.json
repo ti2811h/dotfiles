@@ -2,6 +2,7 @@
     "languageserver": {
         "ccls": {
             "command": "ccls",
+            "trace.server": "verbose",
             "filetypes": [
                 "c",
                 "cpp",
@@ -21,5 +22,12 @@
                 }
             }
         }
-    }
+    },
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "/usr/lib/jvm/java-17-openjdk",
+            "default": true
+        }
+    ]
 }

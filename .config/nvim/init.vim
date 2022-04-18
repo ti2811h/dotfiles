@@ -39,6 +39,9 @@ Plug 'jiangmiao/auto-pairs'
 " tmux navigator
 Plug 'christoomey/vim-tmux-navigator'
 
+" Terminal
+Plug 'voldikss/vim-floaterm'
+
 " Bottom line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -129,6 +132,13 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Floating terminal
+nmap <silent> <F9> :FloatermNew --width=0.9 --height=0.9<CR> 
+nnoremap <silent> <F12> :FloatermKill!<CR>
+tnoremap <silent> <F12> <C-\><C-n>:FloatermKill!<CR>
+nnoremap <silent> <F2> :FloatermToggle<CR>
+tnoremap <silent> <F2> <C-\><C-n>:FloatermToggle<CR>
 
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
