@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81'}
 Plug 'justmao945/vim-clang' " Syntax checking
 Plug 'Shougo/echodoc.vim'
 
