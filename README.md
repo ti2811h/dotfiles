@@ -17,6 +17,8 @@ To configure nvim you need following dependencies:
 - ccls
 - https://github.com/junegunn/vim-plug
 
+To use coc.nvim install version 1.10.0 of coc-tsserver with :CocInstall coc-tsserver@1.10.0 
+
 And then simply create a directory .config/nvim and copy the file init.vim in this directory.
 (I am planning to port my nvim config to lua)
 
