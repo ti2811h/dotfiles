@@ -1,0 +1,293 @@
+;:set syn=dosini
+
+[global/wm]
+#margin-top = 8
+#margin-bottom = 8
+#margin-left = 8
+#margin-right = 8
+
+
+[colors]
+;orange = #FF6200
+;orange = #d65d0e
+darkgray = ${xrdb:color8}
+orange = ${xrdb:color9}
+white = #ebdbb2
+gray = #585858
+black = #090909
+red = #c795ae
+blue = #95aec7
+yellow = #c7ae95
+green = #aec795
+#background = #1f222d
+background = #262626
+background-alt = #161616
+#foreground = #dfdfdf
+foreground = ${xrdb:foreground}
+foreground-alt = #4e4e4e
+primary = #1f222d
+secondary = #FF6200
+alert = #fb4934
+
+[bar/bar]
+monitor = DP-4
+bottom = false
+wm-restack = bspwm
+width = 98%
+height = 26
+offset-x = 17
+offset-y = 11
+
+locale = en_US.UTF-8
+
+enable-ipc = true
+
+padding-left = 0
+padding-right = 0
+
+module-margin-right = 3
+module-margin-left = 0
+
+modules-right = date
+modules-left = bspwm
+
+background = #111022
+foreground = #ebdbb2
+
+underline-size = 0
+underline-color = #585858
+
+tray-detached = false
+tray-position =
+tray-offset-x = 0
+tray-offset-y = 0
+;tray-maxsize = 16
+tray-padding = 0
+tray-transparent = false
+tray-scale = 1.0
+
+font-0 = "monospace:size=10;2"
+font-1 = "FontAwesome:size=12;2"
+font-2 = "Siji:pixelsize=10;1"
+
+
+border-size = 2
+border-color = #111022
+
+[bar/secondary]
+monitor = HDMI-0
+bottom = true
+wm-restack = bspwm
+width = 99%
+height = 26
+offset-x = 11
+offset-y = 11
+
+locale = en_US.UTF-8
+
+enable-ipc = true
+
+padding-left = 0
+padding-right = 0
+
+module-margin-right = 0
+module-margin-left = 0
+
+modules-right = date
+modules-center = xwindow
+modules-left = bspwm
+
+background = #262626
+foreground = #ebdbb2
+
+underline-size = 0
+underline-color = #585858
+
+tray-detached = false
+tray-position =
+tray-offset-x = 0
+tray-offset-y = 0
+;tray-maxsize = 16
+tray-padding = 0
+tray-transparent = false
+tray-scale = 1.0
+
+font-0 = "monospace:size=10;2"
+font-1 = "FontAwesome:size=12;2"
+font-2 = "Siji:pixelsize=10;1"
+
+border-size = 2
+border-color = #ebdbb2
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+format-underline = #262626
+format-background = #262626
+format-padding =
+
+[module/bspwm]
+type = internal/bspwm
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+;label-focused-font = 1
+label-focused-background = #ab4197
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %icon%
+label-occupied-foreground = ${colors.darkgray}
+label-occupied-padding = 2
+
+label-urgent = %icon%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+ws-icon-0 = I;I
+ws-icon-1 = II;II
+ws-icon-2 = III;III
+ws-icon-3 = IV;IV
+ws-icon-4 = V;V
+ws-icon-5 = VI;VI
+ws-icon-6 = VII;VII
+ws-icon-7 = VIII;VIII
+
+
+[module/memory]
+type = custom/script
+exec = free -h | awk 'FNR == 2 {print $3}'
+label = %output%
+click-left = $TERMINAL -e htop &
+interval = 0.5
+
+format =
+
+[module/cpu]
+type = internal/cpu
+
+interval = 0.5
+
+label = "%percentage:2%%"
+
+format = <label>
+format-padding = 2
+
+[module/temperature]
+type = internal/temperature
+interval = 0.5
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
+base-temperature = 20
+warn-temperature = 90
+
+[module/date]
+type = internal/date
+
+interval = 0.5
+
+date = %Y-%m-%d%
+time = %H:%M:%S
+
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+
+label = "%date%|%time% "
+
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+; password = mysecretpassword
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 0.5
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone> (deprecated)
+;   <icon-single> - Toggle playing only a single song. Replaces <icon-repeatone>
+;   <icon-consume>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+;format-playing = ${self.format-online}
+;format-paused = ${self.format-online}
+;format-stopped = ${self.format-online}
+;format-online = <bar-progress>
+
+; Available tags:
+;   <label-offline>
+; Default: ""
+;format-offline = <label-offline>
+
+; Available tokens:
+;   %artist%
+;   %album-artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = %artist% - %title%
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+;label-time = %elapsed% / %total%
+
+; Available tokens:
+;   None
+label-offline = 🎜 mpd is offline
+
+; Only applies if <icon-X> is used
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+icon-repeatone = 🔂
+icon-single = 🔂
+icon-consume = ✀
+
+; Used to display the state of random/repeat/repeatone/single
+; Only applies if <icon-[random|repeat|repeatone|single]> is used
+toggle-on-foreground = #928374
+toggle-off-foreground = #585858
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 40
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+[module/dunst]
+type = custom/ipc
+initial = 1
+format-foreground = ${colors.yellow}
+
+hook-0 = echo "%{A1:dunstctl set-paused true && polybar-msg hook dunst 2:}%{A}" &
+hook-1 = echo "%{A1:dunstctl set-paused false && polybar-msg hook dunst 1:}%{A}" &
