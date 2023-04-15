@@ -1,0 +1,11 @@
+dark:
+background: #111022
+purple: #5e3767
+blue: #2a386d
+red: #330d1c
+green: #204f44
+
+
+bright:
+pink: #ab4197
+green-yellow: #c1ed7e
