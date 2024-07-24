@@ -26,6 +26,22 @@ require('catppuccin').setup({
     },
 })
 
+function ColorSettings(color)
+    vim.o.background = 'dark'
 
-vim.cmd.colorscheme("catppuccin")
+    -- set colorscheme to gruvbox 
+    color = color or 'catppuccin'
+    vim.cmd.colorscheme(color)
+
+    -- set background transparent
+    vim.api.nvim_set_hl(0, 'Normal', {fg = "#7287fd", bg = "#000000" })
+    vim.api.nvim_set_hl(0, 'NormalFloat', { fg = "#ab4197", bg = "#000000" })
+    vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = "#7287fd", bg = "#000000" })
+    vim.api.nvim_set_hl(0, 'NonText', { fg = "#7287fd", bg = "#000000" })
+    vim.api.nvim_set_hl(0, 'NormalNC', { fg = "#ab4197", bg = "#000000" })
+    vim.api.nvim_set_hl(0, 'gitsigns', { fg = "#ab4197", bg = "#000000" })
+    vim.api.nvim_set_hl(0, 'NvimTreeNormal', { fg='#4c4f69', bg="#000000"})
+end
+
+ColorSettings()
 
