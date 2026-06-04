@@ -34,7 +34,7 @@ function ColorSettings(color)
     vim.cmd.colorscheme(color)
 
     -- set background transparent
-    vim.api.nvim_set_hl(0, 'Normal', {fg = "#7287fd", bg = "#000000" })
+    vim.api.nvim_set_hl(0, 'Normal', {fg = "#cad3f5", bg = "#000000" })
     vim.api.nvim_set_hl(0, 'NormalFloat', { fg = "#ab4197", bg = "#000000" })
     vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = "#7287fd", bg = "#000000" })
     vim.api.nvim_set_hl(0, 'NonText', { fg = "#7287fd", bg = "#000000" })

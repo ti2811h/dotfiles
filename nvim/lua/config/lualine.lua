@@ -1,4 +1,4 @@
-local custom_catppuccin = require('lualine.themes.catppuccin')
+local custom_catppuccin = require('catppuccin.utils.lualine')()
 
 
 custom_catppuccin.normal.c.bg = '#412648'
